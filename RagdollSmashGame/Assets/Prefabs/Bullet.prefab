@@ -11,13 +11,11 @@ GameObject:
   - component: {fileID: 3518205336718787328}
   - component: {fileID: 7385717077324693516}
   - component: {fileID: 6695692093608829221}
-  - component: {fileID: 4658348198738614009}
   - component: {fileID: 8831147131012670715}
   - component: {fileID: 6470301378291627916}
-  - component: {fileID: -5608163364380541835}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: RagdollBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -0.06117138, y: 0.01078235, z: 2.8606634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7071835784662083166}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8034688705999228672}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -87,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4658348198738614009
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8034688705999228672}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8831147131012670715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adcee34d0c1db44f9fc7eb2cde1e83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6470301378291627916}
+  rb: {fileID: 7071835785455197376}
 --- !u!54 &6470301378291627916
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,16 +115,113 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-5608163364380541835
-BoxCollider:
+--- !u!1001 &4796584217938909223
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3518205336718787328}
+    m_Modifications:
+    - target: {fileID: 356753093685532573, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_TagString
+      value: RagdollBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 590561842874164280, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_TagString
+      value: RagdollBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.809
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356744639166529146, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+        type: 3}
+      propertyPath: m_Name
+      value: Ragdoll
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1, type: 3}
+--- !u!1 &5072059107408318394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 356753093685532573, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4796584217938909223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2342053416973287555
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8034688705999228672}
+  m_GameObject: {fileID: 5072059107408318394}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!4 &7071835784662083166 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2356744639166529145, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4796584217938909223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7071835785455197376 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2356744639916901607, guid: 9b2bdfe5aeb5e7242a8117f6c038f7f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4796584217938909223}
+  m_PrefabAsset: {fileID: 0}

@@ -10,8 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] Bullet bullet;
     [SerializeField] Transform tip;
     [SerializeField] GameObject shootEff;
+    [SerializeField] Transform CannonHead;
     [SerializeField] GameObject[] wheelEffs;
-
+    [SerializeField] Transform RightWheel;
+    [SerializeField] Transform LeftWheel;
     [Header("Parameters")]
     [SerializeField] float speed;
     [SerializeField] float maxSpeed;
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
     bool oneTimeSet;
     void move()
     {
-        if (rb.velocity.magnitude < 0.2f)
+        if (rb.velocity.magnitude < 0.1f)
         {
             setWheelEffs(false);
             oneTimeSet = true;
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour
     void turn()
     {
         Vector3 curRot = transform.rotation.eulerAngles;
+        rotateWheels();
         if (xy.magnitude == 0)
         {
             transform.rotation = Quaternion.Euler(0, curRot.y, 0);
@@ -96,14 +99,35 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation,
                                 Quaternion.Euler(0, angle, 0),
                                     Time.deltaTime * turnSpeed);
+
     }
+
+    void rotateWheels()
+    {
+        float ang = Vector2.SignedAngle(new Vector2(transform.forward.x, transform.forward.z).normalized, new Vector2(X, Y).normalized);
+        float fac = Vector2.Dot(new Vector2(transform.forward.x, transform.forward.z).normalized, new Vector2(X, Y).normalized);
+        float rFac = 1;
+        float lFac = 1;
+        if (ang < 0)
+            rFac = 0.25f * fac;
+        else if (ang > 0)
+            lFac = 0.25f * fac;
+
+        // print(rb.velocity);
+        RightWheel.Rotate(Vector3.right * rb.velocity.magnitude * rFac * Time.deltaTime * 100);
+        LeftWheel.Rotate(Vector3.right * rb.velocity.magnitude * lFac * Time.deltaTime * 100);
+
+    }
+
+
 
     void shoot()
     {
         if (xy.magnitude != 0 || !oneShot) return;
+        AudioManager.instance.Play("Cannon");
         Bullet bul = Instantiate(bullet, tip.position, Quaternion.identity);
         Instantiate(shootEff, tip.position, Quaternion.identity);
-        bul.Init(bulletSpeed, transform.forward);
+        bul.Init(bulletSpeed, CannonHead.forward);
         oneShot = false;
 
         rb.AddForce(-transform.forward * backForce, ForceMode.Impulse);

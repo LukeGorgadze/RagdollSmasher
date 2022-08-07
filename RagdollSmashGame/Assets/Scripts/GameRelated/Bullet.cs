@@ -28,5 +28,11 @@ public class Bullet : MonoBehaviour
         this.speed = speed;
         this.moveDir = moveDir;
         rb.AddForce(moveDir * speed, ForceMode.Impulse);
+        Die();
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject,2f);
     }
 }
