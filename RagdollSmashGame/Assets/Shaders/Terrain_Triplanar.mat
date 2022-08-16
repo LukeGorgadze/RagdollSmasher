@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3439917893310550408
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Terrain_Triplanar
+  m_Shader: {fileID: -6465566751694194690, guid: ff7dbef29c25c1b41812a85803a5c11a,
+    type: 3}
+  m_ValidKeywords:
+  - _SPECULAR_SETUP
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Side1Normal:
+        m_Texture: {fileID: 2800000, guid: 2c7a96977c60647499f0c95a30ae871b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Side2Normal:
+        m_Texture: {fileID: 2800000, guid: 2c7a96977c60647499f0c95a30ae871b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Top:
+        m_Texture: {fileID: 2800000, guid: ff90e07fc4d9da84d9e92f5d4a0318f3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopNormal:
+        m_Texture: {fileID: 2800000, guid: 2c7a96977c60647499f0c95a30ae871b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex:
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _side_1:
+        m_Texture: {fileID: 2800000, guid: 75d1217e362bd584a8b32a32f73fc3b9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _side_2:
+        m_Texture: {fileID: 2800000, guid: 75d1217e362bd584a8b32a32f73fc3b9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _AmbientOcclusion: 1
+    - _Blend: 0
+    - _Blend_Sharpness: 10
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 0
+    - _DustMax: 2
+    - _DustMin: 0.32
+    - _GrassDustMax: 0.18
+    - _GrassDustMin: 0.8
+    - _GrassDustSize: 5
+    - _Metallic: 0
+    - _Noise_Scale: 8.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 0
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    m_Colors:
+    - _DusctColor: {r: 0, g: 0, b: 0, a: 0}
+    - _GeneralNoise: {r: 0, g: 0, b: 0, a: 0}
+    - _Grass_Dust: {r: 0.18777141, g: 0.7264151, b: 0.2732598, a: 1}
+    - _PowerVector: {r: 4, g: 10, b: 4, a: 0}
+    - _Side1Color: {r: 1, g: 0.7511694, b: 0.40943396, a: 0}
+    - _Side2Color: {r: 1, g: 0.9294118, b: 0.37254903, a: 0}
+    - _SpecularColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
+    - _Tiling: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _TilingTopTex: {r: 50, g: 50, b: 0, a: 0}
+    - _TopColor: {r: 0, g: 0.41509432, b: 0.206413, a: 0}
+    - _Top_Color: {r: 0.029281491, g: 0.6886792, b: 0.0090957275, a: 1}
+  m_BuildTextureStacks: []

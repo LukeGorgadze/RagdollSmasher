@@ -10,19 +10,23 @@ public class GameManager : Singleton<GameManager>
     {
         STARTMENU,
         START,
-        FINISH
+        FINISH,
+        WIN,
+        LOSE
     }
     public void UpdateGameState(GameState newState)
     {
         state = newState;
         switch (newState)
         {
-            case GameState.STARTMENU:
+            case GameState.WIN:
                 {
+                    ReferenceManager.instance.WinScene.SetActive(true);
                     break;
                 }
-            case GameState.START:
+            case GameState.LOSE:
                 {
+                    ReferenceManager.instance.LoseScene.SetActive(true);
                     break;
                 }
             case GameState.FINISH:

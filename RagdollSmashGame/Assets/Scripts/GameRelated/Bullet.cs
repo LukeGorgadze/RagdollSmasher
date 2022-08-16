@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Transform SphereCol;
     public Rigidbody rb;
     float speed;
-    Vector3 moveDir;
-    // private void OnEnable()
-    // {
-    //     // UpdateManager.onUpdate += myUpdate;
-    //     UpdateManager.onFixedUpdate += myFixedUpdate;
-    // }
+    public Vector3 moveDir;
+    private void OnEnable()
+    {
+        UpdateManager.onUpdate += myUpdate;
+        // UpdateManager.onFixedUpdate += myFixedUpdate;
+    }
 
-    // private void OnDisable()
-    // {
-    //     // UpdateManager.onUpdate -= myUpdate;
-    //     UpdateManager.onFixedUpdate -= myFixedUpdate;
-    // }
-    // void myFixedUpdate()
-    // {
+    private void OnDisable()
+    {
+        UpdateManager.onUpdate -= myUpdate;
+        // UpdateManager.onFixedUpdate -= myFixedUpdate;
+    }
+    void myUpdate()
+    {
+        SphereCol.position = rb.position;
+    }
 
-
-    // }
     public void Init(float speed, Vector3 moveDir)
     {
         this.speed = speed;
@@ -33,6 +34,6 @@ public class Bullet : MonoBehaviour
 
     void Die()
     {
-        Destroy(this.gameObject,2f);
+        Destroy(this.gameObject, 2f);
     }
 }

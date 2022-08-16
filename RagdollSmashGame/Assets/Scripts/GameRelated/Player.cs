@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject[] wheelEffs;
     [SerializeField] Transform RightWheel;
     [SerializeField] Transform LeftWheel;
+    [SerializeField] MeshRenderer rend;
+
     [Header("Parameters")]
     [SerializeField] float speed;
     [SerializeField] float maxSpeed;
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     Vector2 xy;
     float X, Y;
     bool oneShot;
+    bool gameDone;
 
     private void OnEnable()
     {
@@ -43,6 +46,8 @@ public class Player : MonoBehaviour
         getInput();
         turn();
         shoot();
+
+        CheckWinOrLose();
     }
 
     public void myFixedUpdate()
@@ -73,10 +78,7 @@ public class Player : MonoBehaviour
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 
         oneShot = true;
-
-
     }
-
     void getInput()
     {
         X = joy.Horizontal;
@@ -112,15 +114,10 @@ public class Player : MonoBehaviour
             rFac = 0.25f * fac;
         else if (ang > 0)
             lFac = 0.25f * fac;
-
         // print(rb.velocity);
         RightWheel.Rotate(Vector3.right * rb.velocity.magnitude * rFac * Time.deltaTime * 100);
         LeftWheel.Rotate(Vector3.right * rb.velocity.magnitude * lFac * Time.deltaTime * 100);
-
     }
-
-
-
     void shoot()
     {
         if (xy.magnitude != 0 || !oneShot) return;
@@ -130,7 +127,7 @@ public class Player : MonoBehaviour
         bul.Init(bulletSpeed, CannonHead.forward);
         oneShot = false;
 
-        rb.AddForce(-transform.forward * backForce, ForceMode.Impulse);
+        rb.AddForce(-transform.forward * backForce * Time.fixedDeltaTime * 10, ForceMode.Impulse);
 
     }
 
@@ -140,5 +137,25 @@ public class Player : MonoBehaviour
         {
             obj.SetActive(state);
         }
+    }
+
+    void CheckWinOrLose()
+    {
+        if (gameDone) return;
+        if (ReferenceManager.instance.zombieList.Count == 0)
+        {
+            GameManager.instance.UpdateGameState(GameManager.GameState.WIN);
+            gameDone = true;
+        }
+        if (transform.position.y <= -5)
+        {
+            GameManager.instance.UpdateGameState(GameManager.GameState.LOSE);
+            gameDone = true;
+        }
+    }
+
+    public void setMyCol(Color col)
+    {
+        rend.materials[0].color = col;
     }
 }
